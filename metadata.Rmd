@@ -147,8 +147,8 @@ There are three other fields that allow you to express more specialised dependen
     
     You can also use `Depends` to require a specific version of R, e.g.
     `Depends: R (>= 3.4.0)`. Again, think carefully if you do this. This raises
-    the same issues as setting minimum version for a package you depend on,
-    except the stakes are much higher when it comes R itself. Users can't simply
+    the same issues as setting a minimum version for a package you depend on,
+    except the stakes are much higher when it comes to R itself. Users can't simply
     consent to the necessary upgrade, so, if other packages depend on yours,
     your minimum version requirement for R can cause a cascade of package
     installation failures.
@@ -260,17 +260,6 @@ Authors@R: c(
     person("Hadley", "Wickham", email = "hadley@rstudio.com", role = "cre"),
     person("Winston", "Chang", email = "winston@rstudio.com", role = "aut"))
 ```
-
-Alternatively, you can do this concisely by using `as.person()`:
-
-```yaml
-Authors@R: as.person(c(
-    "Hadley Wickham <hadley@rstudio.com> [aut, cre]", 
-    "Winston Chang <winston@rstudio.com> [aut]"
-  ))
-```
-
-(This only works well for names with only one first and last name.)
 
 Every package must have at least one author (aut) and one maintainer (cre) (they might be the same person). The creator must have an email address. These fields are used to generate the basic citation for the package (e.g. `citation("pkgname")`). Only people listed as authors will be included in the auto-generated citation. There are a few extra details if you're including code that other people have written. Since this typically occurs when you're wrapping a C library, it's discussed in [compiled code](#src).
 
